@@ -102,7 +102,7 @@ function createTexture(path, callback) {
   };
 }
 
-createTexture('cloud.png', (tex) => {
+createTexture(`${import.meta.env.BASE_URL}cloud.png`, (tex) => {
   for (let i = 0; i < 20; i++) {
     const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, opacity: 0.7 }));
     sprite.position.set((Math.random() - 0.5) * 180, (Math.random() - 0.5) * 60 + 25, (Math.random() - 0.5) * 60);
