@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kirtan Joshi | Retro Portfolio</title>
+  <meta name="description" content="Portfolio of Kirtan Joshi — 4th year IT student, freelance developer, retro enthusiast." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 3D Canvas Layer -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- HTML Overlay Layer -->
+  <div id="overlay">
+    <!-- Navigation -->
+    <nav id="nav">
+      <div class="nav-logo pixel-font">KJ<span class="accent">.</span></div>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link pixel-font">HOME</a>
+        <a href="#about" class="nav-link pixel-font">ABOUT</a>
+        <a href="#skills" class="nav-link pixel-font">SKILLS</a>
+        <a href="#work" class="nav-link pixel-font">WORK</a>
+        <a href="#contact" class="nav-link pixel-font">CONTACT</a>
+      </div>
+    </nav>
+
+    <!-- Scroll Sections -->
+    <section id="hero" class="section">
+      <div class="hero-content">
+        <p class="section-label">01 / DISCOVERY</p>
+        <h1 class="hero-title">KIRTAN JOSHI</h1>
+        <p class="tagline">Final Year IT Student & Creative Dev.<br>Building smooth, professional software with a creative touch.</p>
+        <a href="/resume.pdf" download="Kirtan_Joshi_Resume.pdf" class="pixel-btn">DOWNLOAD_CV.EXE</a>
+      </div>
+      <div class="hero-character">
+        <img src="/character.png" alt="Pixel Art Character" class="char-img" id="hero-char" />
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-inner">
+        <p class="section-label">02 / ABOUT_ME</p>
+        <div class="bento-grid">
+          <div class="bento-item wide-item">
+            <h2 class="pixel-font">EDUCATION</h2>
+            <div class="edu-grid">
+              <div>
+                <h3>B.TECH (IT)</h3>
+                <p class="text-dim">4th Year — Final Year Student</p>
+                <p class="text-dim">Pursuing Information Technology</p>
+              </div>
+              <div>
+                <h3>12TH SCIENCE</h3>
+                <p class="text-dim">Completed — Science Stream</p>
+                <p class="text-dim">Physics-Chemistry-Math Focus</p>
+              </div>
+            </div>
+          </div>
+          <div class="bento-item wide-item">
+            <h2 class="pixel-font">CERTIFICATES</h2>
+            <div class="cert-grid">
+              <div class="cert-card">
+                <img src="/cert-aws.jpeg" alt="AWS Solutions Architecture" class="cert-img" />
+                <h3>AWS SOLUTIONS ARCHITECTURE</h3>
+                <p class="text-dim">Forage Job Simulation — July 2024</p>
+              </div>
+              <div class="cert-card">
+                <img src="/cert-gemini.jpeg" alt="Gemini API by Google" class="cert-img" />
+                <h3>GEMINI API BY GOOGLE</h3>
+                <p class="text-dim">Udacity — July 2024</p>
+              </div>
+              <div class="cert-card">
+                <img src="/cert-deloitte.png" alt="Deloitte Virtual Experience" class="cert-img" />
+                <h3>DELOITTE</h3>
+                <p class="text-dim">Virtual Experience Program</p>
+              </div>
+              <div class="cert-card">
+                <img src="/cert-iot.png" alt="Introduction to Internet of Things" class="cert-img" />
+                <h3>IOT FUNDAMENTALS</h3>
+                <p class="text-dim">Introduction to Internet of Things</p>
+              </div>
+              <div class="cert-card">
+                <img src="/cert-codsoft.png" alt="CodSoft Internship" class="cert-img" />
+                <h3>CODSOFT</h3>
+                <p class="text-dim">Development Internship</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-inner">
+        <p class="section-label">03 / TECH_STACK</p>
+        <div class="skills-container">
+          <div class="skill-tag">HTML5</div>
+          <div class="skill-tag">CSS3</div>
+          <div class="skill-tag">JAVASCRIPT</div>
+          <div class="skill-tag">REACT</div>
+          <div class="skill-tag">NODE.JS</div>
+          <div class="skill-tag">THREE.JS</div>
+          <div class="skill-tag">FIREBASE</div>
+          <div class="skill-tag">GIT</div>
+          <div class="skill-tag">FIGMA</div>
+          <div class="skill-tag">PYTHON</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="section-inner">
+        <p class="section-label">04 / PROJECTS</p>
+        <div class="bento-grid">
+          <div class="bento-item project-card">
+            <h3 class="pixel-font">BUMP</h3>
+            <p class="text-dim">Anonymous Social Chat Platform. Privacy-first communication without revealing identity.</p>
+            <div class="project-links">
+              <a href="https://github.com/Kirtannjoshi/bump" target="_blank">GITHUB</a>
+              <a href="https://bump-ixlu.onrender.com/" target="_blank">LIVE</a>
+            </div>
+          </div>
+          <div class="bento-item project-card">
+            <h3 class="pixel-font">BITCHAT</h3>
+            <p class="text-dim">Browser-based Walkie-Talkie app. Real-time instant messaging with a minimal UI.</p>
+            <div class="project-links">
+              <a href="https://github.com/Kirtannjoshi/bitchat" target="_blank">GITHUB</a>
+              <a href="https://bitchat-rho.vercel.app" target="_blank">LIVE</a>
+            </div>
+          </div>
+          <div class="bento-item project-card">
+            <h3 class="pixel-font">IMAGE SEARCH</h3>
+            <p class="text-dim">Search engine with dynamic grid results. Implemented responsive grid layout.</p>
+            <div class="project-links">
+              <a href="https://github.com/Kirtannjoshi/images-search" target="_blank">GITHUB</a>
+              <a href="https://kirtannjoshi.github.io/images-search/" target="_blank">LIVE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-inner contact-inner">
+        <p class="section-label">05 / NETWORK</p>
+        <h2 class="pixel-font contact-title">READY TO CONNECT?</h2>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/kirtan-joshi-4565ab231/" target="_blank" class="pixel-btn social-btn">LINKEDIN</a>
+          <a href="https://github.com/Kirtannjoshi" target="_blank" class="pixel-btn social-btn">GITHUB</a>
+          <a href="mailto:kirtanjoshi2004@gmail.com" class="pixel-btn social-btn">EMAIL</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
