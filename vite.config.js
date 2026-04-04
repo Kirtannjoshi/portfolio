@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/portfolio/', // Essential for GitHub Pages sub-path
+  base: './', // Makes the build portable (works in any subfolder)
 })
