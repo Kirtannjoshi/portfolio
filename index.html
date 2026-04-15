@@ -2,160 +2,251 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kirtan Joshi</title>
-  <meta name="description" content="Portfolio of Kirtan Joshi — 4th year IT student, freelance developer, retro enthusiast." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=VT323&display=swap" rel="stylesheet">
+  <meta
+    name="description"
+    content="Portfolio of Kirtan Joshi, a final-year Information Technology student building modern digital experiences."
+  />
 </head>
 <body>
-  <!-- 3D Canvas Layer -->
-  <canvas id="three-canvas"></canvas>
+  <canvas id="three-canvas" aria-hidden="true"></canvas>
 
-  <!-- HTML Overlay Layer -->
-  <div id="overlay">
-    <!-- Navigation -->
-    <nav id="nav">
-      <div class="nav-logo pixel-font">KJ<span class="accent">.</span></div>
-      <div class="nav-links">
-        <a href="#hero" class="nav-link pixel-font">HOME</a>
-        <a href="#about" class="nav-link pixel-font">ABOUT</a>
-        <a href="#skills" class="nav-link pixel-font">SKILLS</a>
-        <a href="#work" class="nav-link pixel-font">WORK</a>
-        <a href="#contact" class="nav-link pixel-font">CONTACT</a>
-      </div>
-    </nav>
+  <div class="site-shell">
+    <header class="site-header" id="site-header">
+      <a class="brand" href="#hero" aria-label="Kirtan Joshi home">
+        <span class="brand-mark">KJ</span>
+        <span class="brand-text">Kirtan Joshi</span>
+      </a>
 
-    <!-- Scroll Sections -->
-    <section id="hero" class="section">
-      <div class="hero-content">
-        <p class="section-label">01 / DISCOVERY</p>
-        <h1 class="hero-title">KIRTAN JOSHI</h1>
-        <p class="tagline">Final Year IT Student & Creative Dev.<br>Building smooth, professional software with a creative touch.</p>
-        <a href="./resume.pdf" download="Kirtan_Joshi_Resume.pdf" class="pixel-btn">DOWNLOAD_CV.EXE</a>
-      </div>
-      <div class="hero-character">
-        <img src="./character.png" alt="Pixel Art Character" class="char-img" id="hero-char" />
-      </div>
-    </section>
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#proof">Proof</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-    <section id="about" class="section">
-      <div class="section-inner">
-        <p class="section-label">02 / ABOUT_ME</p>
-        <div class="bento-grid">
-          <div class="bento-item wide-item">
-            <h2 class="pixel-font">EDUCATION</h2>
-            <div class="edu-grid">
+      <div class="header-actions">
+        <a class="button button-ghost desktop-resume" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#proof">Proof</a>
+      <a href="#contact">Contact</a>
+      <a href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+    </div>
+
+    <main>
+      <section class="hero section" id="hero">
+        <div class="section-frame hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow reveal">Final Year IT Student</p>
+            <h1 class="hero-title reveal">
+              <span class="typed-line">
+                <span id="typed-name" class="typed-name" data-name="Kirtan Joshi"></span>
+                <span class="typed-cursor" aria-hidden="true"></span>
+              </span>
+            </h1>
+            <p class="hero-text reveal">
+              I am a final-year Information Technology student building modern digital experiences with a strong interest in design, systems, and real-world technology. I enjoy work that sits between clean interfaces, technical depth, and practical problem solving.
+            </p>
+            <div class="hero-actions reveal">
+              <a class="button button-primary magnetic" href="#projects">View Projects</a>
+              <a class="button button-ghost" href="mailto:kirtanjoshi2004@gmail.com">Email Me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-frame">
+          <div class="section-heading reveal">
+            <p class="eyebrow">About</p>
+            <h2>Building modern interfaces with a broader technology mindset.</h2>
+            <p>
+              My goal is to build digital work that looks good, feels clear, and reflects strong technical thinking. I am interested in how design, software, infrastructure, and secure systems come together in practical products.
+            </p>
+          </div>
+
+          <div class="insight-grid">
+            <article class="panel panel-large reveal">
+              <p class="panel-kicker">Education</p>
+              <h3>B.Tech in Information Technology, final year</h3>
+              <p>
+                I am developing my foundation across software, networks, systems, and modern web technologies. That mix helps me think beyond one narrow role and approach problems with both structure and curiosity.
+              </p>
+              <div class="stat-row">
+                <div class="stat-box">
+                  <span>Stage</span>
+                  <strong>4th Year</strong>
+                </div>
+                <div class="stat-box">
+                  <span>Strength</span>
+                  <strong>Adaptable technical base</strong>
+                </div>
+                <div class="stat-box">
+                  <span>Direction</span>
+                  <strong>Modern product and systems work</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel reveal">
+              <p class="panel-kicker">What I bring</p>
+              <h3>Thoughtful, reliable execution</h3>
+              <ul class="clean-list">
+                <li>Responsive interfaces with clean structure and balanced visuals</li>
+                <li>Strong interest in systems, architecture, and dependable technology</li>
+                <li>A mindset that values clarity, detail, and continuous learning</li>
+              </ul>
+            </article>
+
+            <article class="panel reveal">
+              <p class="panel-kicker">Working stack</p>
+              <h3>Tools and technologies</h3>
+              <div class="chip-group">
+                <span>JavaScript</span>
+                <span>React.js</span>
+                <span>Three.js</span>
+                <span>Node.js</span>
+                <span>Python</span>
+                <span>Firebase</span>
+                <span>GSAP</span>
+                <span>Responsive CSS</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-frame">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Projects</p>
+            <h2>Work that reflects product thinking and technical curiosity.</h2>
+            <p>
+              These projects show how I approach usability, flow, and implementation while keeping the experience clear and focused.
+            </p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card reveal">
+              <div class="project-meta">
+                <span class="project-index">01</span>
+                <span class="project-tag">Anonymous messaging platform</span>
+              </div>
+              <h3>BUMP</h3>
+              <p>
+                A privacy-first social chat experience designed for people who want open communication without exposing identity. Built with simple flows, lightweight interaction, and a direct product idea.
+              </p>
+              <div class="project-details">
+                <span>Node.js</span>
+                <span>Real-time chat</span>
+                <span>Privacy-led UX</span>
+              </div>
+              <div class="project-links">
+                <a class="button button-primary magnetic" href="https://bump-ixlu.onrender.com/" target="_blank" rel="noreferrer">Live Demo</a>
+                <a class="text-link" href="https://github.com/Kirtannjoshi/bump" target="_blank" rel="noreferrer">View Code</a>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-meta">
+                <span class="project-index">02</span>
+                <span class="project-tag">Real-time communication tool</span>
+              </div>
+              <h3>BITCHAT</h3>
+              <p>
+                A minimal chat application inspired by walkie-talkie simplicity. The focus is on reducing clutter and making communication immediate, lightweight, and easy to understand.
+              </p>
+              <div class="project-details">
+                <span>Frontend UI</span>
+                <span>Messaging flow</span>
+                <span>Minimal product design</span>
+              </div>
+              <div class="project-links">
+                <a class="button button-primary magnetic" href="https://bitchat-rho.vercel.app" target="_blank" rel="noreferrer">Live Demo</a>
+                <a class="text-link" href="https://github.com/Kirtannjoshi/bitchat" target="_blank" rel="noreferrer">View Code</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="proof">
+        <div class="section-frame proof-layout">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Proof</p>
+            <h2>Certifications and learning across different technical areas.</h2>
+            <p>
+              These certifications reflect steady learning across cloud, APIs, IoT, and industry-facing simulations.
+            </p>
+          </div>
+
+          <div class="proof-grid reveal">
+            <article class="proof-card">
+              <img src="/cert-aws.jpeg" alt="AWS Solutions Architecture certificate" />
               <div>
-                <h3>B.TECH (IT)</h3>
-                <p class="text-dim">4th Year — Final Year Student</p>
-                <p class="text-dim">Pursuing Information Technology</p>
+                <h3>AWS Solutions Architecture</h3>
+                <p>Forage • 2024</p>
               </div>
+            </article>
+            <article class="proof-card">
+              <img src="/cert-gemini.jpeg" alt="Gemini API certificate" />
               <div>
-                <h3>12TH SCIENCE</h3>
-                <p class="text-dim">Completed — Science Stream</p>
-                <p class="text-dim">Physics-Chemistry-Math Focus</p>
+                <h3>Gemini API by Google</h3>
+                <p>Udacity • 2024</p>
               </div>
-            </div>
-          </div>
-          <div class="bento-item wide-item">
-            <h2 class="pixel-font">CERTIFICATES</h2>
-            <div class="cert-grid">
-              <div class="cert-card">
-                <img src="./cert-aws.jpeg" alt="AWS Solutions Architecture" class="cert-img" />
-                <h3>AWS SOLUTIONS ARCHITECTURE</h3>
-                <p class="text-dim">Forage Job Simulation — July 2024</p>
+            </article>
+            <article class="proof-card">
+              <img src="/cert-deloitte.png" alt="Deloitte virtual experience certificate" />
+              <div>
+                <h3>Deloitte Virtual Experience</h3>
+                <p>Asset Management • 2024</p>
               </div>
-              <div class="cert-card">
-                <img src="./cert-gemini.jpeg" alt="Gemini API by Google" class="cert-img" />
-                <h3>GEMINI API BY GOOGLE</h3>
-                <p class="text-dim">Udacity — July 2024</p>
+            </article>
+            <article class="proof-card">
+              <img src="/cert-iot.png" alt="IoT Fundamentals certificate" />
+              <div>
+                <h3>IoT Fundamentals</h3>
+                <p>Cisco Academy • 2023</p>
               </div>
-              <div class="cert-card">
-                <img src="./cert-deloitte.png" alt="Deloitte Virtual Experience" class="cert-img" />
-                <h3>DELOITTE</h3>
-                <p class="text-dim">Virtual Experience Program</p>
+            </article>
+            <article class="proof-card">
+              <img src="/cert-codsoft.png" alt="CodSoft internship certificate" />
+              <div>
+                <h3>CodSoft Internship</h3>
+                <p>Web Development • 2023</p>
               </div>
-              <div class="cert-card">
-                <img src="./cert-iot.png" alt="Introduction to Internet of Things" class="cert-img" />
-                <h3>IOT FUNDAMENTALS</h3>
-                <p class="text-dim">Introduction to Internet of Things</p>
-              </div>
-              <div class="cert-card">
-                <img src="./cert-codsoft.png" alt="CodSoft Internship" class="cert-img" />
-                <h3>CODSOFT</h3>
-                <p class="text-dim">Development Internship</p>
-              </div>
-            </div>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="skills" class="section">
-      <div class="section-inner">
-        <p class="section-label">03 / TECH_STACK</p>
-        <div class="skills-container">
-          <div class="skill-tag">HTML5</div>
-          <div class="skill-tag">CSS3</div>
-          <div class="skill-tag">JAVASCRIPT</div>
-          <div class="skill-tag">REACT</div>
-          <div class="skill-tag">NODE.JS</div>
-          <div class="skill-tag">THREE.JS</div>
-          <div class="skill-tag">FIREBASE</div>
-          <div class="skill-tag">GIT</div>
-          <div class="skill-tag">FIGMA</div>
-          <div class="skill-tag">PYTHON</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="work" class="section">
-      <div class="section-inner">
-        <p class="section-label">04 / PROJECTS</p>
-        <div class="bento-grid">
-          <div class="bento-item project-card">
-            <h3 class="pixel-font">BUMP</h3>
-            <p class="text-dim">Anonymous Social Chat Platform. Privacy-first communication without revealing identity.</p>
-            <div class="project-links">
-              <a href="https://github.com/Kirtannjoshi/bump" target="_blank">GITHUB</a>
-              <a href="https://bump-ixlu.onrender.com/" target="_blank">LIVE</a>
-            </div>
-          </div>
-          <div class="bento-item project-card">
-            <h3 class="pixel-font">BITCHAT</h3>
-            <p class="text-dim">Browser-based Walkie-Talkie app. Real-time instant messaging with a minimal UI.</p>
-            <div class="project-links">
-              <a href="https://github.com/Kirtannjoshi/bitchat" target="_blank">GITHUB</a>
-              <a href="https://bitchat-rho.vercel.app" target="_blank">LIVE</a>
-            </div>
-          </div>
-          <div class="bento-item project-card">
-            <h3 class="pixel-font">IMAGE SEARCH</h3>
-            <p class="text-dim">Search engine with dynamic grid results. Implemented responsive grid layout.</p>
-            <div class="project-links">
-              <a href="https://github.com/Kirtannjoshi/images-search" target="_blank">GITHUB</a>
-              <a href="https://kirtannjoshi.github.io/images-search/" target="_blank">LIVE</a>
-            </div>
+      <section class="section contact-section" id="contact">
+        <div class="section-frame contact-card reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Open to internships, opportunities, and meaningful collaboration.</h2>
+          <p>
+            If you want to connect about work, projects, or future opportunities, I would be glad to hear from you.
+          </p>
+          <div class="contact-actions">
+            <a class="button button-primary magnetic" href="mailto:kirtanjoshi2004@gmail.com">Email Me</a>
+            <a class="button button-ghost" href="https://www.linkedin.com/in/kirtan-joshi-4565ab231/" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="section-inner contact-inner">
-        <p class="section-label">05 / NETWORK</p>
-        <h2 class="pixel-font contact-title">READY TO CONNECT?</h2>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/kirtan-joshi-4565ab231/" target="_blank" class="pixel-btn social-btn">LINKEDIN</a>
-          <a href="https://github.com/Kirtannjoshi" target="_blank" class="pixel-btn social-btn">GITHUB</a>
-          <a href="mailto:kirtanjoshi2004@gmail.com" class="pixel-btn social-btn">EMAIL</a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
   </div>
 
-  <script type="module" src="./src/main.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
