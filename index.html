@@ -1,162 +1,826 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kirtan Joshi</title>
-  <meta name="description" content="Portfolio of Kirtan Joshi — 4th year IT student, freelance developer, retro enthusiast." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=VT323&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="./assets/index-TO5Wn5cR.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-hYzOJsND.css">
-</head>
-<body>
-  <!-- 3D Canvas Layer -->
-  <canvas id="three-canvas"></canvas>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kirtan Joshi | Full-Stack Engineer & B.Tech Graduate</title>
 
-  <!-- HTML Overlay Layer -->
-  <div id="overlay">
-    <!-- Navigation -->
-    <nav id="nav">
-      <div class="nav-logo pixel-font">KJ<span class="accent">.</span></div>
-      <div class="nav-links">
-        <a href="#hero" class="nav-link pixel-font">HOME</a>
-        <a href="#about" class="nav-link pixel-font">ABOUT</a>
-        <a href="#skills" class="nav-link pixel-font">SKILLS</a>
-        <a href="#work" class="nav-link pixel-font">WORK</a>
-        <a href="#contact" class="nav-link pixel-font">CONTACT</a>
-      </div>
-    </nav>
+    <meta
+      name="description"
+      content="B.Tech Graduate in Information Technology building full-stack applications, real-time communication tools, and media ecosystems."
+    />
+    <meta
+      name="keywords"
+      content="Kirtan Joshi, full-stack engineer, B.Tech IT graduate, CultPop, Tuner, BITCHAT, Sutra, Image Search, React, Node.js, Next.js, Cloud Resume"
+    />
+    <meta name="author" content="Kirtan Joshi" />
+    <meta name="robots" content="index, follow" />
 
-    <!-- Scroll Sections -->
-    <section id="hero" class="section">
-      <div class="hero-content">
-        <p class="section-label">01 / DISCOVERY</p>
-        <h1 class="hero-title">KIRTAN JOSHI</h1>
-        <p class="tagline">Final Year IT Student & Creative Dev.<br>Building smooth, professional software with a creative touch.</p>
-        <a href="./resume.pdf" download="Kirtan_Joshi_Resume.pdf" class="pixel-btn">DOWNLOAD_CV.EXE</a>
-      </div>
-      <div class="hero-character">
-        <img src="./character.png" alt="Pixel Art Character" class="char-img" id="hero-char" />
-      </div>
-    </section>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 
-    <section id="about" class="section">
-      <div class="section-inner">
-        <p class="section-label">02 / ABOUT_ME</p>
-        <div class="bento-grid">
-          <div class="bento-item wide-item">
-            <h2 class="pixel-font">EDUCATION</h2>
-            <div class="edu-grid">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Credly Badge Verification Embed Utility -->
+    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+    <script type="module" crossorigin src="./assets/index-D69Pj3wr.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CbyB_ThT.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <!-- Fine Grain Noise Overlay -->
+      <div class="noise-overlay" aria-hidden="true"></div>
+
+      <!-- Site Header -->
+      <header class="site-header" id="top">
+        <div class="container header-row">
+          <div class="header-left">
+            <a class="pill logo-pill" href="#top" aria-label="Home">
+              <span>K. Joshi</span>
+            </a>
+
+            <a class="pill chat-pill hide-sm" href="#connect">
+              Let's Chat
+              <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17L17 7" />
+                <path d="M9 7h8v8" />
+              </svg>
+            </a>
+
+            <button
+              class="pill icon-button menu-button"
+              id="menu-toggle-btn"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              aria-label="Toggle menu"
+            >
+              <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16" />
+                <path d="M4 12h16" />
+                <path d="M4 17h16" />
+              </svg>
+            </button>
+          </div>
+
+          <nav class="header-links hide-md" aria-label="Social links">
+            <a
+              href="https://www.linkedin.com/in/kirtanjoshi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.94 6.5A1.94 1.94 0 1 1 3 6.5a1.94 1.94 0 0 1 3.94 0ZM3.5 9h3v12h-3zM10 9h2.87v1.64h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.62 2 3.62 4.59V21h-3v-6.34c0-1.51-.03-3.45-2.1-3.45s-2.42 1.64-2.42 3.34V21h-3Z" />
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://github.com/Kirtannjoshi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-3.16 19.48c.5.09.68-.22.68-.48v-1.68c-2.77.61-3.35-1.18-3.35-1.18-.46-1.17-1.13-1.48-1.13-1.48-.93-.64.07-.63.07-.63 1.03.07 1.57 1.06 1.57 1.06.92 1.58 2.41 1.12 3 .85.09-.67.36-1.12.65-1.38-2.21-.25-4.54-1.1-4.54-4.91 0-1.08.39-1.96 1.03-2.65-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.34 1.9-1.29 2.74-1.02 2.74-1.02.55 1.42.2 2.47.1 2.73.64.69 1.03 1.57 1.03 2.65 0 3.82-2.34 4.66-4.56 4.9.37.32.7.95.7 1.92v2.84c0 .26.18.57.69.47A10 10 0 0 0 12 2Z" />
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://x.com/Kirtanjoshi00"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </svg>
+              <span>X</span>
+            </a>
+            <a
+              href="https://wa.me/?text=Hi%20Kirtan,%20reaching%20out%20via%20your%20portfolio!"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              title="WhatsApp: @kirtanjoshiii"
+            >
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+              <span>WhatsApp</span>
+            </a>
+            <a href="./resume.pdf" download="Kirtan_Joshi_Resume.pdf" class="social-link">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 3h7v7h-2V6.41l-8.29 8.3-1.42-1.42 8.3-8.29H14Z" />
+                <path d="M5 5h6v2H7v10h10v-4h2v6H5Z" />
+              </svg>
+              <span>CV</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div class="mobile-menu" id="mobile-menu" hidden>
+          <a href="#projects">Projects</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#skills">Skills</a>
+          <a href="#tools">Tools</a>
+          <a href="#connect">Connect</a>
+          <a href="./resume.pdf" download="Kirtan_Joshi_Resume.pdf">Download CV</a>
+        </div>
+      </header>
+
+      <main class="site-main">
+        <!-- Hero Section -->
+        <section class="hero-section section-divider">
+          <div class="hero-glow"></div>
+          <div class="container hero-grid">
+            <div class="hero-copy reveal">
+              <p class="eyebrow">Welcome to my space</p>
+              <h1 class="hero-title hero-title-single">
+                <span class="hero-greeting">Hi, I'm</span>
+                <span class="typing-container">
+                  <span class="typing-text" id="typing-text">Kirtan Joshi</span><span class="typing-cursor" aria-hidden="true"></span>
+                </span>
+              </h1>
+              <div class="accent-dot"></div>
+              <a class="primary-button" href="#connect">Get In Touch</a>
+            </div>
+
+            <div class="hero-bio reveal delay-1">
+              <p>
+                <strong>B.Tech Graduate in Information Technology</strong> building full-stack applications, real-time communication tools, and media platforms.
+              </p>
+              <p>
+                I develop full-stack <a href="#projects">projects with Next.js, React, Node.js, and cloud architectures</a>—including media discovery platforms like CultPop & Sutra, radio streaming engines like Tuner, and walkie-talkie communication tools like BITCHAT.
+              </p>
+              <p>
+                Currently focused on real-time WebSockets, micro-interactions, clean system design, and open-source contributions.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Two Column Main Section: Projects & Certifications -->
+        <section class="section section-alt content-auto" id="projects">
+          <div class="container two-column">
+            <!-- Left Column: Projects -->
+            <div class="column column-left section-divider-vertical">
+              <h2>Projects</h2>
+              <p class="section-subtitle">Flagship applications and open-source software.</p>
+
+              <div class="card-list">
+                <!-- Project 1: CultPop -->
+                <a
+                  href="https://github.com/Kirtannjoshi/cultpop"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-card"
+                >
+                  <div>
+                    <h3>CultPop — Media Universe &amp; Discovery Platform</h3>
+                    <p>
+                      Premium full-stack media logging &amp; discovery platform unifying movies, iTunes soundtracks, books, and social culture feeds. Built with Next.js 15, TypeScript, Express, and MongoDB.
+                    </p>
+                  </div>
+                  <svg class="icon arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 17L17 7" />
+                    <path d="M9 7h8v8" />
+                  </svg>
+                </a>
+
+                <!-- Project 2: Tuner -->
+                <a
+                  href="https://radiowave-7xxi7.web.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-card"
+                >
+                  <div>
+                    <h3>Tuner — High-Fidelity Global Radio Ecosystem</h3>
+                    <p>
+                      Radio streaming ecosystem across Android &amp; Web unifying 40,000+ stations worldwide with low-latency audio routing, ExoPlayer engine, and Firebase infrastructure.
+                    </p>
+                  </div>
+                  <svg class="icon arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 17L17 7" />
+                    <path d="M9 7h8v8" />
+                  </svg>
+                </a>
+
+                <!-- Project 3: BITCHAT -->
+                <a
+                  href="https://bitchat-rho.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-card"
+                >
+                  <div>
+                    <h3>BITCHAT — Walkie-Talkie Instant Messenger</h3>
+                    <p>
+                      Minimalist browser communication tool inspired by walkie-talkie simplicity. Instantaneous text delivery with zero clutter, lightweight state, and clean UI.
+                    </p>
+                  </div>
+                  <svg class="icon arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 17L17 7" />
+                    <path d="M9 7h8v8" />
+                  </svg>
+                </a>
+
+                <!-- Project 4: Sutra -->
+                <a
+                  href="https://github.com/Kirtannjoshi/sutra"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-card"
+                >
+                  <div>
+                    <h3>Sutra — Next-Gen Cinematic Discovery Platform</h3>
+                    <p>
+                      Interactive media tracking platform with embedded trailers, dynamic community feeds, watched diary, and glassmorphic UI. Built with Next.js 14 and Tailwind.
+                    </p>
+                  </div>
+                  <svg class="icon arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 17L17 7" />
+                    <path d="M9 7h8v8" />
+                  </svg>
+                </a>
+
+                <!-- Project 5: Image Search Engine -->
+                <a
+                  href="https://kirtannjoshi.github.io/images-search/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-card"
+                >
+                  <div>
+                    <h3>Image Search Engine</h3>
+                    <p>
+                      Clean and simple image search engine built with HTML, CSS, and JavaScript. Instantly finds and displays high-res images using a fast, responsive grid UI.
+                    </p>
+                  </div>
+                  <svg class="icon arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 17L17 7" />
+                    <path d="M9 7h8v8" />
+                  </svg>
+                </a>
+
+                <!-- Project 6: BUMP -->
+                <a
+                  href="https://bump-ixlu.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-card"
+                >
+                  <div>
+                    <h3>BUMP — Anonymous Social Chat Platform</h3>
+                    <p>
+                      Privacy-first real-time messaging application designed for open social communication without exposing identity. Built with Node.js and real-time sockets.
+                    </p>
+                  </div>
+                  <svg class="icon arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 17L17 7" />
+                    <path d="M9 7h8v8" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Column: Certifications & Credly Badge -->
+            <div class="column column-right" id="certifications">
+              <div class="column-header-row">
+                <div>
+                  <h2>Certifications</h2>
+                  <p class="section-subtitle">Verified credentials, digital badges, and focused programs.</p>
+                </div>
+                <div class="rail-nav-buttons" aria-label="Certificate rail controls">
+                  <button type="button" class="rail-btn" id="cert-prev-btn" aria-label="Scroll left">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                  </button>
+                  <button type="button" class="rail-btn" id="cert-next-btn" aria-label="Scroll right">
+                    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Horizontal Certificate Preview Rail -->
+              <div class="cert-horizontal-rail" id="cert-rail">
+                <!-- Cert 1: Cisco Cybersecurity -->
+                <div
+                  class="cert-preview-card cert-trigger"
+                  data-src="./cert-cisco.png"
+                  data-title="Introduction to Cybersecurity"
+                  data-org="Cisco • Verified on Credly"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div class="cert-thumb-box">
+                    <img src="./cert-cisco.png" alt="Cisco Cybersecurity Badge" class="cert-thumb-img cert-thumb-badge" loading="lazy" />
+                    <span class="preview-overlay-pill">Inspect</span>
+                  </div>
+                  <div class="cert-card-content">
+                    <span class="badge-mini-tag">Cisco • Credly</span>
+                    <h4>Introduction to Cybersecurity</h4>
+                    <p class="cert-card-meta">Network defense &amp; threats</p>
+                    <div class="cert-quick-links" onclick="event.stopPropagation()">
+                      <a href="https://www.credly.com/badges/c493ecb3-216f-4934-aec9-e6df07604e0c/public_url" target="_blank" rel="noopener noreferrer" class="mini-link">Verify ↗</a>
+                      <a href="https://lnkd.in/p/dKGJYeK8" target="_blank" rel="noopener noreferrer" class="mini-link">LinkedIn ↗</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cert 2: AWS Solutions Architecture -->
+                <div
+                  class="cert-preview-card cert-trigger"
+                  data-src="./cert-aws.jpeg"
+                  data-title="AWS Solutions Architecture"
+                  data-org="Forage Job Simulation • 2024"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div class="cert-thumb-box">
+                    <img src="./cert-aws.jpeg" alt="AWS Solutions Architecture Preview" class="cert-thumb-img" loading="lazy" />
+                    <span class="preview-overlay-pill">Inspect</span>
+                  </div>
+                  <div class="cert-card-content">
+                    <span class="badge-mini-tag">AWS • Forage</span>
+                    <h4>Solutions Architecture</h4>
+                    <p class="cert-card-meta">Cloud VPC &amp; Resilience</p>
+                    <span class="view-cert-cta">Click to preview</span>
+                  </div>
+                </div>
+
+                <!-- Cert 3: Gemini API -->
+                <div
+                  class="cert-preview-card cert-trigger"
+                  data-src="./cert-gemini.jpeg"
+                  data-title="Gemini API by Google"
+                  data-org="Udacity • 2024"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div class="cert-thumb-box">
+                    <img src="./cert-gemini.jpeg" alt="Gemini API Certificate Preview" class="cert-thumb-img" loading="lazy" />
+                    <span class="preview-overlay-pill">Inspect</span>
+                  </div>
+                  <div class="cert-card-content">
+                    <span class="badge-mini-tag">Google • Udacity</span>
+                    <h4>Gemini API Integration</h4>
+                    <p class="cert-card-meta">Multimodal LLM Systems</p>
+                    <span class="view-cert-cta">Click to preview</span>
+                  </div>
+                </div>
+
+                <!-- Cert 4: Deloitte Virtual Experience -->
+                <div
+                  class="cert-preview-card cert-trigger"
+                  data-src="./cert-deloitte.png"
+                  data-title="Deloitte Virtual Experience"
+                  data-org="Technology &amp; Asset Management • 2024"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div class="cert-thumb-box">
+                    <img src="./cert-deloitte.png" alt="Deloitte Certificate Preview" class="cert-thumb-img" loading="lazy" />
+                    <span class="preview-overlay-pill">Inspect</span>
+                  </div>
+                  <div class="cert-card-content">
+                    <span class="badge-mini-tag">Deloitte</span>
+                    <h4>Technology Experience</h4>
+                    <p class="cert-card-meta">Enterprise Architecture</p>
+                    <span class="view-cert-cta">Click to preview</span>
+                  </div>
+                </div>
+
+                <!-- Cert 5: IoT Fundamentals -->
+                <div
+                  class="cert-preview-card cert-trigger"
+                  data-src="./cert-iot.png"
+                  data-title="IoT Fundamentals"
+                  data-org="Cisco Networking Academy • 2023"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div class="cert-thumb-box">
+                    <img src="./cert-iot.png" alt="IoT Fundamentals Preview" class="cert-thumb-img" loading="lazy" />
+                    <span class="preview-overlay-pill">Inspect</span>
+                  </div>
+                  <div class="cert-card-content">
+                    <span class="badge-mini-tag">Cisco Academy</span>
+                    <h4>IoT Fundamentals</h4>
+                    <p class="cert-card-meta">Sensors &amp; Microcontrollers</p>
+                    <span class="view-cert-cta">Click to preview</span>
+                  </div>
+                </div>
+
+                <!-- Cert 6: CodSoft -->
+                <div
+                  class="cert-preview-card cert-trigger"
+                  data-src="./cert-codsoft.png"
+                  data-title="CodSoft Web Development Internship"
+                  data-org="Web Development Program • 2023"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div class="cert-thumb-box">
+                    <img src="./cert-codsoft.png" alt="CodSoft Internship Preview" class="cert-thumb-img" loading="lazy" />
+                    <span class="preview-overlay-pill">Inspect</span>
+                  </div>
+                  <div class="cert-card-content">
+                    <span class="badge-mini-tag">CodSoft</span>
+                    <h4>Web Development</h4>
+                    <p class="cert-card-meta">Full-Stack Internship</p>
+                    <span class="view-cert-cta">Click to preview</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Collapsible Live Credly Embed Section -->
+              <div class="credly-embed-accordion">
+                <button type="button" class="credly-accordion-toggle" id="credly-toggle-btn" aria-expanded="false">
+                  <span>View Official Credly Live Interactive Widget</span>
+                  <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="credly-accordion-panel" id="credly-panel" hidden>
+                  <div class="credly-badge-card credly-badge-inline">
+                    <div class="credly-embed-container">
+                      <div
+                        data-iframe-width="150"
+                        data-iframe-height="270"
+                        data-share-badge-id="c493ecb3-216f-4934-aec9-e6df07604e0c"
+                        data-share-badge-host="https://www.credly.com"
+                      ></div>
+                    </div>
+                    <div class="credly-info">
+                      <div class="badge-tag">Cisco Verified Credential</div>
+                      <h3>Introduction to Cybersecurity</h3>
+                      <p>
+                        Issued by Cisco to Kirtan Joshi. Verifies knowledge of cybersecurity threats, vulnerability defense, network security architecture, and threat mitigation.
+                      </p>
+                      <div class="badge-links">
+                        <a
+                          href="https://www.credly.com/badges/c493ecb3-216f-4934-aec9-e6df07604e0c/public_url"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="badge-link"
+                        >
+                          <span>Verify on Credly</span>
+                          <svg class="icon" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+                        </a>
+                        <a
+                          href="https://lnkd.in/p/dKGJYeK8"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="badge-link"
+                        >
+                          <span>LinkedIn Post</span>
+                          <svg class="icon" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section content-auto" id="skills">
+          <div class="container">
+            <h2>Skills</h2>
+            <p class="section-subtitle">Technologies and frameworks I work with.</p>
+
+            <div class="skills-grid">
               <div>
-                <h3>B.TECH (IT)</h3>
-                <p class="text-dim">4th Year — Final Year Student</p>
-                <p class="text-dim">Pursuing Information Technology</p>
+                <h3>Languages</h3>
+                <div class="tag-wrap">
+                  <span class="tag">JavaScript (ES6+)</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">HTML5</span>
+                  <span class="tag">CSS3</span>
+                  <span class="tag">SQL</span>
+                  <span class="tag">C++</span>
+                </div>
               </div>
+
               <div>
-                <h3>12TH SCIENCE</h3>
-                <p class="text-dim">Completed — Science Stream</p>
-                <p class="text-dim">Physics-Chemistry-Math Focus</p>
+                <h3>Frameworks &amp; APIs</h3>
+                <div class="tag-wrap">
+                  <span class="tag">Next.js 15</span>
+                  <span class="tag">React.js</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">Express.js</span>
+                  <span class="tag">Tailwind CSS</span>
+                  <span class="tag">WebSockets</span>
+                  <span class="tag">REST APIs</span>
+                  <span class="tag">Gemini AI API</span>
+                </div>
+              </div>
+
+              <div>
+                <h3>Cloud &amp; Infrastructure</h3>
+                <div class="tag-wrap">
+                  <span class="tag">AWS Fundamentals</span>
+                  <span class="tag">Cloudflare Pages</span>
+                  <span class="tag">Firebase</span>
+                  <span class="tag">Vercel</span>
+                  <span class="tag">Render</span>
+                  <span class="tag">CI/CD Pipelines</span>
+                </div>
+              </div>
+
+              <div>
+                <h3>Databases</h3>
+                <div class="tag-wrap">
+                  <span class="tag">MongoDB</span>
+                  <span class="tag">Firebase Firestore</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">MySQL</span>
+                </div>
+              </div>
+
+              <div>
+                <h3>DevOps &amp; Workflow</h3>
+                <div class="tag-wrap">
+                  <span class="tag">Git</span>
+                  <span class="tag">GitHub Actions</span>
+                  <span class="tag">Linux / Terminal CLI</span>
+                  <span class="tag">Vite</span>
+                  <span class="tag">Turbopack</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="bento-item wide-item">
-            <h2 class="pixel-font">CERTIFICATES</h2>
-            <div class="cert-grid">
-              <div class="cert-card">
-                <img src="./cert-aws.jpeg" alt="AWS Solutions Architecture" class="cert-img" />
-                <h3>AWS SOLUTIONS ARCHITECTURE</h3>
-                <p class="text-dim">Forage Job Simulation — July 2024</p>
+        </section>
+
+        <!-- Tools Section -->
+        <section class="section section-alt content-auto section-divider" id="tools">
+          <div class="container">
+            <h2>Tools</h2>
+            <p class="section-subtitle">Software, platforms, and utilities I use daily.</p>
+
+            <div class="tag-wrap tag-wrap-wide">
+              <span class="tag">VS Code</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">Vite</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Figma</span>
+              <span class="tag">Postman</span>
+              <span class="tag">Cursor</span>
+              <span class="tag">Amazon Web Services</span>
+              <span class="tag">Cloudflare</span>
+              <span class="tag">Vercel</span>
+              <span class="tag">Render</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Connect Section & Direct Mailbox -->
+        <section class="section section-divider" id="connect">
+          <div class="container connect-wrap">
+            <h2>Connect with me</h2>
+            <p class="section-subtitle">Let's build something amazing together.</p>
+
+            <div class="connect-row">
+              <div class="connect-icons">
+                <!-- LinkedIn -->
+                <a
+                  href="https://www.linkedin.com/in/kirtanjoshi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="round-icon-link"
+                  aria-label="LinkedIn"
+                  title="Connect on LinkedIn"
+                >
+                  <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6.94 6.5A1.94 1.94 0 1 1 3 6.5a1.94 1.94 0 0 1 3.94 0ZM3.5 9h3v12h-3zM10 9h2.87v1.64h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.62 2 3.62 4.59V21h-3v-6.34c0-1.51-.03-3.45-2.1-3.45s-2.42 1.64-2.42 3.34V21h-3Z" />
+                  </svg>
+                </a>
+
+                <!-- GitHub -->
+                <a
+                  href="https://github.com/Kirtannjoshi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="round-icon-link"
+                  aria-label="GitHub"
+                  title="Follow on GitHub"
+                >
+                  <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2a10 10 0 0 0-3.16 19.48c.5.09.68-.22.68-.48v-1.68c-2.77.61-3.35-1.18-3.35-1.18-.46-1.17-1.13-1.48-1.13-1.48-.93-.64.07-.63.07-.63 1.03.07 1.57 1.06 1.57 1.06.92 1.58 2.41 1.12 3 .85.09-.67.36-1.12.65-1.38-2.21-.25-4.54-1.1-4.54-4.91 0-1.08.39-1.96 1.03-2.65-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.34 1.9-1.29 2.74-1.02 2.74-1.02.55 1.42.2 2.47.1 2.73.64.69 1.03 1.57 1.03 2.65 0 3.82-2.34 4.66-4.56 4.9.37.32.7.95.7 1.92v2.84c0 .26.18.57.69.47A10 10 0 0 0 12 2Z" />
+                  </svg>
+                </a>
+
+                <!-- X (Twitter) -->
+                <a
+                  href="https://x.com/Kirtanjoshi00"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="round-icon-link"
+                  aria-label="X (Twitter)"
+                  title="Connect on X"
+                >
+                  <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                  </svg>
+                </a>
+
+                <!-- WhatsApp Username (NO phone numbers) -->
+                <a
+                  href="https://wa.me/?text=Hi%20Kirtan,%20reaching%20out%20via%20your%20portfolio!"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="round-icon-link"
+                  aria-label="WhatsApp"
+                  title="WhatsApp: @kirtanjoshiii"
+                >
+                  <svg class="icon icon-lg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                  </svg>
+                </a>
+
+                <!-- Discord Copy -->
+                <button
+                  type="button"
+                  class="round-icon-link copy-discord-trigger"
+                  data-discord="kirtan4323"
+                  aria-label="Discord"
+                  title="Copy Discord: kirtan4323"
+                >
+                  <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="9" cy="12" r="1" />
+                    <circle cx="15" cy="12" r="1" />
+                    <path d="M7.5 7.5c3.5-1 5.5-1 9 0 1.5 3 2 7 1 10.5-2 1.5-4 1.5-5.5 1.5l-.5-1.5c-1 0-2 0-3 0l-.5 1.5c-1.5 0-3.5 0-5.5-1.5-1-3.5-.5-7.5 1-10.5z" />
+                  </svg>
+                </button>
               </div>
-              <div class="cert-card">
-                <img src="./cert-gemini.jpeg" alt="Gemini API by Google" class="cert-img" />
-                <h3>GEMINI API BY GOOGLE</h3>
-                <p class="text-dim">Udacity — July 2024</p>
-              </div>
-              <div class="cert-card">
-                <img src="./cert-deloitte.png" alt="Deloitte Virtual Experience" class="cert-img" />
-                <h3>DELOITTE</h3>
-                <p class="text-dim">Virtual Experience Program</p>
-              </div>
-              <div class="cert-card">
-                <img src="./cert-iot.png" alt="Introduction to Internet of Things" class="cert-img" />
-                <h3>IOT FUNDAMENTALS</h3>
-                <p class="text-dim">Introduction to Internet of Things</p>
-              </div>
-              <div class="cert-card">
-                <img src="./cert-codsoft.png" alt="CodSoft Internship" class="cert-img" />
-                <h3>CODSOFT</h3>
-                <p class="text-dim">Development Internship</p>
+
+              <a class="email-link" href="mailto:kirtanjoshi2004@gmail.com">kirtanjoshi2004@gmail.com</a>
+            </div>
+
+            <!-- Direct Mailbox Composer Card -->
+            <div class="direct-mailbox-wrapper">
+              <div class="mailbox-card">
+                <div class="mailbox-header">
+                  <div>
+                    <span class="mailbox-title">Direct Mailbox Composer</span>
+                    <p class="mailbox-subtitle">Sends an instant email directly to Kirtan's personal inbox</p>
+                  </div>
+                  <span class="mailbox-badge">kirtanjoshi2004@gmail.com</span>
+                </div>
+
+                <form class="mailbox-form" id="direct-mailbox-form">
+                  <div class="form-row">
+                    <input
+                      type="text"
+                      id="mail-name"
+                      name="name"
+                      class="clean-input"
+                      placeholder="Your Name"
+                      required
+                    />
+                    <input
+                      type="email"
+                      id="mail-email"
+                      name="email"
+                      class="clean-input"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    id="mail-subject"
+                    name="subject"
+                    class="clean-input"
+                    placeholder="Subject (e.g. Project Collaboration / Job Opportunity)"
+                    required
+                  />
+                  <textarea
+                    id="mail-message"
+                    name="message"
+                    class="clean-input clean-textarea"
+                    rows="4"
+                    placeholder="Write your note to Kirtan here..."
+                    required
+                  ></textarea>
+
+                  <div class="mailbox-footer">
+                    <button type="submit" class="primary-button" id="mail-send-btn">
+                      <span id="btn-text">Send Message</span>
+                      <svg class="btn-icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    </button>
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=kirtanjoshi2004@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="pill chat-pill"
+                      id="mail-gmail-btn"
+                      title="Open and write directly in Gmail"
+                    >
+                      Open in Gmail ↗
+                    </a>
+                    <a
+                      href="https://wa.me/?text=Hi%20Kirtan,%20reaching%20out%20via%20your%20portfolio!"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="pill chat-pill"
+                      id="mail-wa-btn"
+                      title="Chat on WhatsApp"
+                    >
+                      WhatsApp: @kirtanjoshiii
+                    </a>
+                  </div>
+                  <div id="mail-status" class="status-msg" aria-live="polite"></div>
+                </form>
               </div>
             </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Site Footer with Visitor Counter -->
+      <footer class="site-footer">
+        <div class="container footer-visitors">
+          <span class="visitor-label">Site visitors</span>
+          <span id="visit-count" class="visitor-count">1,842</span>
+        </div>
+        <div class="container footer-row">
+          <div class="footer-copy">
+            © <span id="year"></span> Kirtan Joshi. All rights reserved.
+          </div>
+          <div class="footer-links">
+            <a
+              href="https://www.linkedin.com/in/kirtanjoshi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-icon"
+              aria-label="LinkedIn"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.94 6.5A1.94 1.94 0 1 1 3 6.5a1.94 1.94 0 0 1 3.94 0ZM3.5 9h3v12h-3zM10 9h2.87v1.64h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.62 2 3.62 4.59V21h-3v-6.34c0-1.51-.03-3.45-2.1-3.45s-2.42 1.64-2.42 3.34V21h-3Z" />
+              </svg>
+            </a>
+            <a
+              href="https://github.com/Kirtannjoshi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-icon"
+              aria-label="GitHub"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-3.16 19.48c.5.09.68-.22.68-.48v-1.68c-2.77.61-3.35-1.18-3.35-1.18-.46-1.17-1.13-1.48-1.13-1.48-.93-.64.07-.63.07-.63 1.03.07 1.57 1.06 1.57 1.06.92 1.58 2.41 1.12 3 .85.09-.67.36-1.12.65-1.38-2.21-.25-4.54-1.1-4.54-4.91 0-1.08.39-1.96 1.03-2.65-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.34 1.9-1.29 2.74-1.02 2.74-1.02.55 1.42.2 2.47.1 2.73.64.69 1.03 1.57 1.03 2.65 0 3.82-2.34 4.66-4.56 4.9.37.32.7.95.7 1.92v2.84c0 .26.18.57.69.47A10 10 0 0 0 12 2Z" />
+              </svg>
+            </a>
+            <a
+              href="https://x.com/Kirtanjoshi00"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-icon"
+              aria-label="X"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </svg>
+            </a>
+            <a class="email-link footer-email" href="mailto:kirtanjoshi2004@gmail.com">kirtanjoshi2004@gmail.com</a>
           </div>
         </div>
-      </div>
-    </section>
+      </footer>
+    </div>
 
-    <section id="skills" class="section">
-      <div class="section-inner">
-        <p class="section-label">03 / TECH_STACK</p>
-        <div class="skills-container">
-          <div class="skill-tag">HTML5</div>
-          <div class="skill-tag">CSS3</div>
-          <div class="skill-tag">JAVASCRIPT</div>
-          <div class="skill-tag">REACT</div>
-          <div class="skill-tag">NODE.JS</div>
-          <div class="skill-tag">THREE.JS</div>
-          <div class="skill-tag">FIREBASE</div>
-          <div class="skill-tag">GIT</div>
-          <div class="skill-tag">FIGMA</div>
-          <div class="skill-tag">PYTHON</div>
+    <!-- Certificate Inspection Modal -->
+    <div class="cert-modal" id="cert-modal" aria-hidden="true">
+      <div class="cert-modal-backdrop" id="cert-modal-backdrop"></div>
+      <div class="cert-modal-dialog">
+        <div class="cert-modal-header">
+          <h3 id="modal-cert-title">Verified Certificate</h3>
+          <button class="cert-modal-close" id="cert-modal-close" aria-label="Close modal">✕</button>
+        </div>
+        <div class="cert-modal-body">
+          <img id="modal-cert-img" src="" alt="Certificate inspection preview" />
+          <p id="modal-cert-org" class="cert-modal-caption"></p>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="work" class="section">
-      <div class="section-inner">
-        <p class="section-label">04 / PROJECTS</p>
-        <div class="bento-grid">
-          <div class="bento-item project-card">
-            <h3 class="pixel-font">BUMP</h3>
-            <p class="text-dim">Anonymous Social Chat Platform. Privacy-first communication without revealing identity.</p>
-            <div class="project-links">
-              <a href="https://github.com/Kirtannjoshi/bump" target="_blank">GITHUB</a>
-              <a href="https://bump-ixlu.onrender.com/" target="_blank">LIVE</a>
-            </div>
-          </div>
-          <div class="bento-item project-card">
-            <h3 class="pixel-font">BITCHAT</h3>
-            <p class="text-dim">Browser-based Walkie-Talkie app. Real-time instant messaging with a minimal UI.</p>
-            <div class="project-links">
-              <a href="https://github.com/Kirtannjoshi/bitchat" target="_blank">GITHUB</a>
-              <a href="https://bitchat-rho.vercel.app" target="_blank">LIVE</a>
-            </div>
-          </div>
-          <div class="bento-item project-card">
-            <h3 class="pixel-font">IMAGE SEARCH</h3>
-            <p class="text-dim">Search engine with dynamic grid results. Implemented responsive grid layout.</p>
-            <div class="project-links">
-              <a href="https://github.com/Kirtannjoshi/images-search" target="_blank">GITHUB</a>
-              <a href="https://kirtannjoshi.github.io/images-search/" target="_blank">LIVE</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Toast Notification -->
+    <div class="toast-pill" id="toast-pill" aria-hidden="true">
+      <span class="toast-indicator"></span>
+      <span id="toast-text">Copied to clipboard</span>
+    </div>
 
-    <section id="contact" class="section">
-      <div class="section-inner contact-inner">
-        <p class="section-label">05 / NETWORK</p>
-        <h2 class="pixel-font contact-title">READY TO CONNECT?</h2>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/kirtan-joshi-4565ab231/" target="_blank" class="pixel-btn social-btn">LINKEDIN</a>
-          <a href="https://github.com/Kirtannjoshi" target="_blank" class="pixel-btn social-btn">GITHUB</a>
-          <a href="mailto:kirtanjoshi2004@gmail.com" class="pixel-btn social-btn">EMAIL</a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-</body>
+  </body>
 </html>
