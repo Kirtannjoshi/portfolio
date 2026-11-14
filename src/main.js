@@ -31,6 +31,14 @@ if (menuButton && mobileMenu) {
       mobileMenu.hidden = true;
     });
   });
+
+  // Click outside to close mobile menu
+  document.addEventListener('click', (e) => {
+    if (!menuButton.contains(e.target) && !mobileMenu.contains(e.target) && !mobileMenu.hidden) {
+      menuButton.setAttribute('aria-expanded', 'false');
+      mobileMenu.hidden = true;
+    }
+  });
 }
 
 /* =========================================================================

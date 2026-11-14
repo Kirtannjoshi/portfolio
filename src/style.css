@@ -20,10 +20,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text);
   background:
@@ -47,7 +49,7 @@ a {
 .page-shell {
   position: relative;
   min-height: 100vh;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 .container {
@@ -196,32 +198,56 @@ a {
 }
 
 /* Mobile Menu */
+@media (min-width: 1025px) {
+  .menu-button {
+    display: none !important;
+  }
+}
+
 .mobile-menu {
   border-top: 1px solid var(--border);
-  background: rgba(10, 10, 10, 0.96);
-  padding: 0.75rem 1rem 1rem;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(16px);
+  padding: 0.85rem 1rem 1.15rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
+  animation: mobileMenuSlide 0.22s ease-out;
+}
+
+@keyframes mobileMenuSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mobile-menu[hidden] {
-  display: none;
+  display: none !important;
 }
 
 .mobile-menu a {
-  padding: 0.55rem 0.85rem;
+  padding: 0.6rem 0.95rem;
   border-radius: 999px;
   color: var(--muted);
   background: var(--surface);
   border: 1px solid var(--border);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  transition: all var(--transition);
 }
 
-.mobile-menu a:hover {
+.mobile-menu a:hover,
+.mobile-menu a:active {
   color: var(--text);
+  border-color: var(--accent);
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-1px);
 }
@@ -1236,25 +1262,30 @@ a {
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .hide-md {
-    display: none;
+    display: none !important;
   }
 
   .hero-grid,
   .two-column,
-  .skills-grid,
   .footer-row,
   .connect-row {
     grid-template-columns: 1fr;
   }
 
   .hero-grid {
-    gap: 2rem;
-    padding: 3.25rem 0 4rem;
+    gap: 2.25rem;
+    padding: 3.5rem 0 4.5rem;
   }
 
   .hero-copy,
   .hero-bio {
     text-align: center;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .hero-title-single {
+    justify-content: center;
   }
 
   .accent-dot {
@@ -1262,21 +1293,16 @@ a {
     margin-right: auto;
   }
 
-  .section-divider-vertical,
-  .column-left,
-  .column-right {
-    border-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   .section-divider-vertical {
-    padding-bottom: 2rem;
+    border-right: 0;
+    padding-right: 0;
+    padding-bottom: 2.5rem;
     border-bottom: 1px solid var(--border);
   }
 
   .column-right {
-    padding-top: 1.5rem;
+    padding-left: 0;
+    padding-top: 2rem;
   }
 
   .footer-row {
@@ -1287,11 +1313,11 @@ a {
 
 @media (max-width: 767px) {
   .hide-sm {
-    display: none;
+    display: none !important;
   }
 
   .container {
-    width: min(calc(100% - 1.25rem), var(--container));
+    width: min(calc(100% - 1.5rem), var(--container));
   }
 
   .header-row {
@@ -1302,26 +1328,288 @@ a {
     min-height: auto;
   }
 
+  .hero-grid {
+    padding: 2.25rem 0 3.25rem;
+    gap: 1.75rem;
+  }
+
   .hero-title {
-    font-size: clamp(2.8rem, 18vw, 4.2rem);
+    font-size: clamp(1.75rem, 7.5vw, 2.5rem);
+    line-height: 1.25;
+  }
+
+  .hero-title-single {
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    gap: 0.35rem;
+  }
+
+  .hero-greeting {
+    display: inline;
+  }
+
+  .typing-container {
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .hero-bio p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
   }
 
   .section,
   .section-alt {
-    padding: 2.5rem 0;
+    padding: 2.75rem 0;
   }
 
-  .project-card,
-  .note-item {
-    padding: 1rem;
+  .section h2 {
+    font-size: 1.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .column-header-row {
+    align-items: center;
+  }
+
+  .rail-btn {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  /* Horizontal Certificate Rail Touch Optimization */
+  .cert-horizontal-rail {
+    gap: 0.75rem;
+    margin: 0 -0.5rem 1.25rem;
+    padding: 0.25rem 0.5rem 0.85rem;
+    overscroll-behavior-x: contain;
+  }
+
+  .cert-preview-card {
+    flex: 0 0 190px;
+    width: 190px;
+    padding: 0.65rem;
+  }
+
+  .cert-thumb-box {
+    height: 115px;
+  }
+
+  .project-card {
+    padding: 0.95rem;
+    border-radius: 1.1rem;
+  }
+
+  .project-card h3 {
+    font-size: 0.96rem;
+  }
+
+  .project-card p {
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .tag {
+    padding: 0.38rem 0.65rem;
+    font-size: 0.82rem;
+  }
+
+  /* Connect Section */
+  .connect-row {
+    gap: 1.25rem;
+  }
+
+  .connect-icons {
+    gap: 0.65rem;
+  }
+
+  .round-icon-link {
+    width: 3.1rem;
+    height: 3.1rem;
+  }
+
+  .email-link {
+    font-size: 0.88rem;
+    word-break: break-all;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Direct Mailbox Composer Mobile Optimization */
+  .direct-mailbox-wrapper {
+    margin: 2rem auto 0;
+  }
+
+  .mailbox-card {
+    padding: 1.15rem 0.95rem;
+    border-radius: 1.1rem;
+  }
+
+  .mailbox-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .mailbox-badge {
+    font-size: 0.72rem;
+    word-break: break-all;
   }
 
   .form-row {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .clean-input {
+    font-size: 16px; /* Prevents auto-zoom in mobile Safari / iOS */
+    padding: 0.75rem 0.85rem;
+    border-radius: 0.65rem;
+  }
+
+  .mailbox-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+  }
+
+  .mailbox-footer .primary-button,
+  .mailbox-footer .chat-pill {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Lightbox Modal */
+  .cert-modal {
+    padding: 0.65rem;
+  }
+
+  .cert-modal-dialog {
+    border-radius: 1rem;
+    max-height: 92vh;
+  }
+
+  .cert-modal-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .cert-modal-body {
+    padding: 0.75rem;
+  }
+
+  .cert-modal-body img {
+    max-height: 55vh;
+  }
+
+  /* Footer */
+  .footer-visitors {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.82rem;
+  }
+
+  .footer-row {
+    gap: 0.75rem;
   }
 
   .footer-links {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(calc(100% - 1.1rem), var(--container));
+  }
+
+  .header-left {
+    gap: 0.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.48rem, 6.8vw, 1.95rem);
+  }
+
+  .hero-title-single {
+    gap: 0.25rem;
+  }
+
+  .typing-cursor {
+    height: 0.9em;
+  }
+
+  .primary-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cert-preview-card {
+    flex: 0 0 175px;
+    width: 175px;
+    padding: 0.6rem;
+  }
+
+  .cert-thumb-box {
+    height: 105px;
+  }
+
+  .cert-card-content h4 {
+    font-size: 0.86rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .mobile-menu {
+    padding: 0.75rem 0.5rem 1rem;
+    gap: 0.35rem;
+  }
+
+  .mobile-menu a {
+    font-size: 0.84rem;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .credly-badge-card {
+    padding: 0.85rem 0.65rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.4rem;
+  }
+
+  .cert-preview-card {
+    flex: 0 0 160px;
+    width: 160px;
+  }
+
+  .cert-thumb-box {
+    height: 95px;
+  }
+
+  .round-icon-link {
+    width: 2.85rem;
+    height: 2.85rem;
   }
 }
