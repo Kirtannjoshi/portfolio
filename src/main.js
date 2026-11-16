@@ -16,27 +16,45 @@ if (yearElement) {
 }
 
 /* =========================================================================
-   MOBILE MENU TOGGLE
+   MOBILE MENU TOGGLE & OUTSIDE-CLICK HANDLER
    ========================================================================= */
+function closeMobileMenu() {
+  if (!menuButton || !mobileMenu) return;
+  menuButton.setAttribute('aria-expanded', 'false');
+  mobileMenu.hidden = true;
+}
+
+function toggleMobileMenu() {
+  if (!menuButton || !mobileMenu) return;
+  const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+  menuButton.setAttribute('aria-expanded', String(!isOpen));
+  mobileMenu.hidden = isOpen;
+}
+
 if (menuButton && mobileMenu) {
-  menuButton.addEventListener('click', () => {
-    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', String(!isOpen));
-    mobileMenu.hidden = isOpen;
+  menuButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMobileMenu();
   });
 
+  // Close when tapping any link inside mobile menu
   mobileMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      menuButton.setAttribute('aria-expanded', 'false');
-      mobileMenu.hidden = true;
+      closeMobileMenu();
     });
   });
 
-  // Click outside to close mobile menu
+  // Close when tapping anywhere outside header/menu
   document.addEventListener('click', (e) => {
-    if (!menuButton.contains(e.target) && !mobileMenu.contains(e.target) && !mobileMenu.hidden) {
-      menuButton.setAttribute('aria-expanded', 'false');
-      mobileMenu.hidden = true;
+    if (!mobileMenu.hidden && !mobileMenu.contains(e.target) && !menuButton.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu.hidden) {
+      closeMobileMenu();
     }
   });
 }
@@ -56,8 +74,8 @@ if (typingElement) {
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  const TYPE_SPEED = 90;
-  const DELETE_SPEED = 45;
+  const TYPE_SPEED = 85;
+  const DELETE_SPEED = 40;
   const PAUSE_END = 2100;
   const PAUSE_START = 400;
 
@@ -148,7 +166,7 @@ async function initLiveVisitorCounter() {
       }
     }
   } catch (err) {
-    // Graceful offline fallback
+    // Graceful fallback
     currentTarget += 1;
     localStorage.setItem('kj_live_hits', currentTarget);
     animateCount(currentTarget, visitCountElement);
@@ -165,14 +183,16 @@ const certPrevBtn = document.getElementById('cert-prev-btn');
 const certNextBtn = document.getElementById('cert-next-btn');
 
 if (certRail && certPrevBtn && certNextBtn) {
-  const SCROLL_AMOUNT = 230;
-
-  certPrevBtn.addEventListener('click', () => {
-    certRail.scrollBy({ left: -SCROLL_AMOUNT, behavior: 'smooth' });
+  certPrevBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const scrollStep = Math.max(certRail.clientWidth * 0.75, 200);
+    certRail.scrollBy({ left: -scrollStep, behavior: 'smooth' });
   });
 
-  certNextBtn.addEventListener('click', () => {
-    certRail.scrollBy({ left: SCROLL_AMOUNT, behavior: 'smooth' });
+  certNextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const scrollStep = Math.max(certRail.clientWidth * 0.75, 200);
+    certRail.scrollBy({ left: scrollStep, behavior: 'smooth' });
   });
 }
 
@@ -284,7 +304,7 @@ if (mailboxForm) {
 }
 
 /* =========================================================================
-   CERTIFICATE INSPECTION MODAL
+   CERTIFICATE INSPECTION MODAL (With Mobile Body Scroll Lock)
    ========================================================================= */
 const certModal = document.getElementById('cert-modal');
 const certModalBackdrop = document.getElementById('cert-modal-backdrop');
@@ -300,16 +320,22 @@ function openCertModal(src, title, org) {
   if (modalCertOrg) modalCertOrg.textContent = org;
   certModal.classList.add('open');
   certModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
 }
 
 function closeCertModal() {
   if (!certModal) return;
   certModal.classList.remove('open');
   certModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
 }
 
 document.querySelectorAll('.cert-trigger').forEach((item) => {
-  const trigger = () => {
+  const trigger = (e) => {
+    // If the tap/click was on an external link inside the card, don't trigger the modal
+    if (e && e.target && (e.target.closest('.cert-quick-links') || e.target.closest('a'))) {
+      return;
+    }
     const src = item.dataset.src;
     const title = item.dataset.title;
     const org = item.dataset.org;
@@ -320,7 +346,7 @@ document.querySelectorAll('.cert-trigger').forEach((item) => {
   item.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      trigger();
+      trigger(e);
     }
   });
 });
@@ -335,7 +361,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 /* =========================================================================
-   DISCORD 1-CLICK CLIPBOARD COPY & TOAST
+   DISCORD 1-CLICK CLIPBOARD COPY (Cross-Device Safe with Fallback)
    ========================================================================= */
 const toastPill = document.getElementById('toast-pill');
 const toastText = document.getElementById('toast-text');
@@ -354,14 +380,46 @@ function showToast(text) {
   }, 2400);
 }
 
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (e) {
+      console.warn('Clipboard API blocked, trying fallback:', e);
+    }
+  }
+
+  // Cross-device fallback for mobile Safari / Android Webviews
+  const textArea = document.createElement('textarea');
+  textArea.value = text;
+  textArea.style.position = 'fixed';
+  textArea.style.left = '-9999px';
+  textArea.style.top = '0';
+  textArea.style.opacity = '0';
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    const success = document.execCommand('copy');
+    textArea.remove();
+    return success;
+  } catch (err) {
+    textArea.remove();
+    return false;
+  }
+}
+
 document.querySelectorAll('.copy-discord-trigger').forEach((btn) => {
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', async (e) => {
     e.preventDefault();
     const handle = btn.dataset.discord || 'kirtan4323';
-    navigator.clipboard.writeText(handle).then(() => {
-      showToast(`Discord handle '${handle}' copied to clipboard`);
-    }).catch(() => {
+    const copied = await copyTextToClipboard(handle);
+    if (copied) {
+      showToast(`Discord handle '${handle}' copied!`);
+    } else {
       showToast(`Discord: ${handle}`);
-    });
+    }
   });
 });
