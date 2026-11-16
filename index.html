@@ -29,8 +29,8 @@
 
     <!-- Credly Badge Verification Embed Utility -->
     <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-    <script type="module" crossorigin src="./assets/index-D69Pj3wr.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CbyB_ThT.css">
+    <script type="module" crossorigin src="./assets/index-BvO-_2Dq.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DJL9Xitr.css">
   </head>
   <body>
     <div class="page-shell">
@@ -59,12 +59,16 @@
               type="button"
               aria-expanded="false"
               aria-controls="mobile-menu"
-              aria-label="Toggle menu"
+              aria-label="Toggle navigation menu"
             >
-              <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+              <svg class="icon icon-menu icon-open" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4 7h16" />
                 <path d="M4 12h16" />
                 <path d="M4 17h16" />
+              </svg>
+              <svg class="icon icon-close icon-shut" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 6L6 18" />
+                <path d="M6 6l12 12" />
               </svg>
             </button>
           </div>
@@ -128,12 +132,45 @@
 
         <!-- Mobile Menu Dropdown -->
         <div class="mobile-menu" id="mobile-menu" hidden>
-          <a href="#projects">Projects</a>
-          <a href="#certifications">Certifications</a>
-          <a href="#skills">Skills</a>
-          <a href="#tools">Tools</a>
-          <a href="#connect">Connect</a>
-          <a href="./resume.pdf" download="Kirtan_Joshi_Resume.pdf">Download CV</a>
+          <div class="mobile-menu-section">
+            <span class="mobile-section-label">Navigation</span>
+            <div class="mobile-nav-pills">
+              <a href="#projects" class="mobile-pill">Projects</a>
+              <a href="#certifications" class="mobile-pill">Certifications</a>
+              <a href="#skills" class="mobile-pill">Skills</a>
+              <a href="#tools" class="mobile-pill">Tools</a>
+              <a href="#connect" class="mobile-pill">Connect</a>
+              <a href="./resume.pdf" download="Kirtan_Joshi_Resume.pdf" class="mobile-pill mobile-cv-pill">
+                <span>CV</span>
+                <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14 3h7v7h-2V6.41l-8.29 8.3-1.42-1.42 8.3-8.29H14Z" />
+                  <path d="M5 5h6v2H7v10h10v-4h2v6H5Z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="mobile-menu-section mobile-menu-socials">
+            <span class="mobile-section-label">Profiles &amp; Quick Contact</span>
+            <div class="mobile-social-pills">
+              <a href="https://www.linkedin.com/in/kirtanjoshi" target="_blank" rel="noopener noreferrer" class="mobile-social-link">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M6.94 6.5A1.94 1.94 0 1 1 3 6.5a1.94 1.94 0 0 1 3.94 0ZM3.5 9h3v12h-3zM10 9h2.87v1.64h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.62 2 3.62 4.59V21h-3v-6.34c0-1.51-.03-3.45-2.1-3.45s-2.42 1.64-2.42 3.34V21h-3Z" /></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/Kirtannjoshi" target="_blank" rel="noopener noreferrer" class="mobile-social-link">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.48c.5.09.68-.22.68-.48v-1.68c-2.77.61-3.35-1.18-3.35-1.18-.46-1.17-1.13-1.48-1.13-1.48-.93-.64.07-.63.07-.63 1.03.07 1.57 1.06 1.57 1.06.92 1.58 2.41 1.12 3 .85.09-.67.36-1.12.65-1.38-2.21-.25-4.54-1.1-4.54-4.91 0-1.08.39-1.96 1.03-2.65-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.34 1.9-1.29 2.74-1.02 2.74-1.02.55 1.42.2 2.47.1 2.73.64.69 1.03 1.57 1.03 2.65 0 3.82-2.34 4.66-4.56 4.9.37.32.7.95.7 1.92v2.84c0 .26.18.57.69.47A10 10 0 0 0 12 2Z" /></svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://x.com/Kirtanjoshi00" target="_blank" rel="noopener noreferrer" class="mobile-social-link">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                <span>X</span>
+              </a>
+              <a href="https://wa.me/?text=Hi%20Kirtan,%20reaching%20out%20via%20your%20portfolio!" target="_blank" rel="noopener noreferrer" class="mobile-social-link" title="WhatsApp: @kirtanjoshiii">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" /></svg>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
         </div>
       </header>
 
