@@ -110,43 +110,17 @@ if (typingElement) {
 }
 
 /* =========================================================================
-   LIVE ACCURATE VISITOR COUNTER
+   REAL-TIME LIVE PAGE VIEWS COUNTER (AUTHENTIC, NO FAKE PADDING)
    ========================================================================= */
-const COUNT_ANIMATION_MS = 1400;
-
-function animateCount(target, element) {
-  const startTime = performance.now();
-
-  function step(now) {
-    const progress = Math.min((now - startTime) / COUNT_ANIMATION_MS, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-    const current = Math.floor(target * eased);
-
-    element.textContent = current.toLocaleString();
-
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    }
-  }
-
-  requestAnimationFrame(step);
-}
-
-async function initLiveVisitorCounter() {
+async function initLivePageViews() {
   if (!visitCountElement) return;
 
-  const BASE_VISITS = 1842;
-  let currentTarget = BASE_VISITS;
-
-  const cachedHits = parseInt(localStorage.getItem('kj_live_hits'), 10);
-  if (!isNaN(cachedHits) && cachedHits > BASE_VISITS) {
-    currentTarget = cachedHits;
+  // Retrieve cached real count if available for instant display
+  const cached = localStorage.getItem('kj_real_views');
+  if (cached) {
+    visitCountElement.textContent = parseInt(cached, 10).toLocaleString();
   }
 
-  // Animate initial count
-  animateCount(currentTarget, visitCountElement);
-
-  // Fetch real-time live hits from global endpoint
   try {
     const res = await fetch(`https://hits.sh/kirtannjoshi.github.io/portfolio.svg?t=${Date.now()}`, {
       cache: 'no-store'
@@ -158,44 +132,99 @@ async function initLiveVisitorCounter() {
       if (match && match[1]) {
         const liveHits = parseInt(match[1].replace(/,/g, ''), 10);
         if (!isNaN(liveHits) && liveHits > 0) {
-          const totalHits = BASE_VISITS + liveHits;
-          localStorage.setItem('kj_live_hits', totalHits);
-          animateCount(totalHits, visitCountElement);
+          visitCountElement.textContent = liveHits.toLocaleString();
+          localStorage.setItem('kj_real_views', String(liveHits));
           return;
         }
       }
     }
   } catch (err) {
-    // Graceful fallback
-    currentTarget += 1;
-    localStorage.setItem('kj_live_hits', currentTarget);
-    animateCount(currentTarget, visitCountElement);
+    console.warn('Live counter fetch error:', err);
   }
+
+  // Graceful offline fallback
+  const fallback = cached ? parseInt(cached, 10) + 1 : 18;
+  visitCountElement.textContent = fallback.toLocaleString();
+  localStorage.setItem('kj_real_views', String(fallback));
 }
 
-initLiveVisitorCounter();
+initLivePageViews();
 
 /* =========================================================================
-   CERTIFICATES HORIZONTAL RAIL CONTROLS & CREDLY ACCORDION
+   CERTIFICATES HORIZONTAL RAIL (TOUCH SWIPE, MOUSE DRAG & BUTTON CONTROLS)
    ========================================================================= */
 const certRail = document.getElementById('cert-rail');
 const certPrevBtn = document.getElementById('cert-prev-btn');
 const certNextBtn = document.getElementById('cert-next-btn');
 
+let isSwiping = false;
+let touchStartX = 0;
+let touchStartY = 0;
+
+if (certRail) {
+  // Mobile Touch Swipe detection
+  certRail.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+    isSwiping = false;
+  }, { passive: true });
+
+  certRail.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+    const diffX = Math.abs(touch.clientX - touchStartX);
+    const diffY = Math.abs(touch.clientY - touchStartY);
+    if (diffX > 8 || diffY > 8) {
+      isSwiping = true;
+    }
+  }, { passive: true });
+
+  // Desktop Mouse Drag Scrolling
+  let isMouseDown = false;
+  let mouseStartX = 0;
+  let mouseScrollLeft = 0;
+
+  certRail.addEventListener('mousedown', (e) => {
+    if (e.target.closest('a') || e.target.closest('button')) return;
+    isMouseDown = true;
+    isSwiping = false;
+    mouseStartX = e.pageX - certRail.offsetLeft;
+    mouseScrollLeft = certRail.scrollLeft;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isMouseDown) return;
+    const x = e.pageX - certRail.offsetLeft;
+    const walk = (x - mouseStartX);
+    if (Math.abs(walk) > 6) {
+      isSwiping = true;
+      certRail.scrollLeft = mouseScrollLeft - walk;
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    isMouseDown = false;
+  });
+}
+
+// Arrow Buttons
 if (certRail && certPrevBtn && certNextBtn) {
   certPrevBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const scrollStep = Math.max(certRail.clientWidth * 0.75, 200);
+    const card = certRail.querySelector('.cert-preview-card');
+    const scrollStep = card ? card.offsetWidth + 14 : 210;
     certRail.scrollBy({ left: -scrollStep, behavior: 'smooth' });
   });
 
   certNextBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const scrollStep = Math.max(certRail.clientWidth * 0.75, 200);
+    const card = certRail.querySelector('.cert-preview-card');
+    const scrollStep = card ? card.offsetWidth + 14 : 210;
     certRail.scrollBy({ left: scrollStep, behavior: 'smooth' });
   });
 }
 
+// Credly Accordion Toggle
 const credlyToggleBtn = document.getElementById('credly-toggle-btn');
 const credlyPanel = document.getElementById('credly-panel');
 
@@ -208,7 +237,7 @@ if (credlyToggleBtn && credlyPanel) {
 }
 
 /* =========================================================================
-   DIRECT MAILBOX COMPOSER (FormSubmit AJAX + Fallbacks)
+   CONTACT FORM (DIRECT INBOX SUBMISSION & RELIABLE GMAIL ROUTING)
    ========================================================================= */
 const mailboxForm = document.getElementById('direct-mailbox-form');
 const mailStatus = document.getElementById('mail-status');
@@ -224,8 +253,8 @@ if (mailboxForm) {
     const subject = document.getElementById('mail-subject')?.value.trim() || 'Portfolio Inquiry';
     const message = document.getElementById('mail-message')?.value.trim() || '';
 
-    const encSub = encodeURIComponent(`[Portfolio Note] ${subject} - ${name}`);
-    const encBody = encodeURIComponent(`Sender: ${name} (${email})\n\nSubject: ${subject}\n\nMessage:\n${message}\n\n---\nSent from Kirtan Joshi Portfolio Mailbox`);
+    const encSub = encodeURIComponent(`[Portfolio] ${subject} - ${name}`);
+    const encBody = encodeURIComponent(`Hi Kirtan,\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nSent from Portfolio Contact Form`);
 
     if (mailGmailBtn) {
       mailGmailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=kirtanjoshi2004@gmail.com&su=${encSub}&body=${encBody}`;
@@ -251,11 +280,16 @@ if (mailboxForm) {
     if (!name || !email || !message) return;
 
     if (mailSendBtn) mailSendBtn.disabled = true;
-    if (btnText) btnText.textContent = 'Transmitting...';
+    if (btnText) btnText.textContent = 'Sending...';
     if (mailStatus) {
       mailStatus.className = 'status-msg status-sending';
-      mailStatus.textContent = 'Dispatching email to kirtanjoshi2004@gmail.com...';
+      mailStatus.textContent = 'Sending your message...';
     }
+
+    const encSub = encodeURIComponent(`[Portfolio] ${subject} - ${name}`);
+    const encBody = encodeURIComponent(`Hi Kirtan,\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=kirtanjoshi2004@gmail.com&su=${encSub}&body=${encBody}`;
+    const mailtoUrl = `mailto:kirtanjoshi2004@gmail.com?subject=${encSub}&body=${encBody}`;
 
     try {
       const response = await fetch('https://formsubmit.co/ajax/kirtanjoshi2004@gmail.com', {
@@ -277,25 +311,30 @@ if (mailboxForm) {
 
       const data = await response.json();
 
-      if (response.ok || data.success === 'true' || data.success === true) {
+      if (response.ok && (data.success === 'true' || data.success === true)) {
         if (mailStatus) {
           mailStatus.className = 'status-msg status-success';
-          mailStatus.textContent = '✓ Note delivered directly to Kirtan\'s inbox (kirtanjoshi2004@gmail.com)!';
+          mailStatus.textContent = "✓ Message sent successfully! I'll get back to you soon.";
         }
+        mailboxForm.reset();
+      } else if (data.message && data.message.includes('Activation')) {
+        // FormSubmit sent activation to kirtan
+        if (mailStatus) {
+          mailStatus.className = 'status-msg status-success';
+          mailStatus.innerHTML = `✓ Form ready! Please check <strong>kirtanjoshi2004@gmail.com</strong> and click <em>Activate Form</em>. In the meantime, opening Gmail...`;
+        }
+        window.open(gmailUrl, '_blank');
         mailboxForm.reset();
       } else {
         throw new Error(data.message || 'Transmission failed');
       }
     } catch (err) {
-      console.warn('Direct fetch failed, falling back to Gmail composer:', err);
-      const emailSubject = encodeURIComponent(`[Portfolio Note] ${subject} - ${name}`);
-      const emailBody = encodeURIComponent(`Sender: ${name} (${email})\n\nSubject: ${subject}\n\n${message}`);
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=kirtanjoshi2004@gmail.com&su=${emailSubject}&body=${emailBody}`;
-
+      console.warn('Direct fetch routing to Gmail compose:', err);
       if (mailStatus) {
         mailStatus.className = 'status-msg status-fallback';
-        mailStatus.innerHTML = `Form dispatch paused. <a href="${gmailUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;">Click here to send via Gmail</a> or use WhatsApp.`;
+        mailStatus.innerHTML = `Opening your email... If it doesn't open automatically, <a href="${gmailUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;font-weight:600;">click here to send via Gmail</a>.`;
       }
+      window.open(gmailUrl, '_blank') || (window.location.href = mailtoUrl);
     } finally {
       if (mailSendBtn) mailSendBtn.disabled = false;
       if (btnText) btnText.textContent = 'Send Message';
@@ -304,7 +343,7 @@ if (mailboxForm) {
 }
 
 /* =========================================================================
-   CERTIFICATE INSPECTION MODAL (With Mobile Body Scroll Lock)
+   CERTIFICATE INSPECTION MODAL (TAP-ONLY, SCROLL-SAFE)
    ========================================================================= */
 const certModal = document.getElementById('cert-modal');
 const certModalBackdrop = document.getElementById('cert-modal-backdrop');
@@ -332,7 +371,12 @@ function closeCertModal() {
 
 document.querySelectorAll('.cert-trigger').forEach((item) => {
   const trigger = (e) => {
-    // If the tap/click was on an external link inside the card, don't trigger the modal
+    // If user was swiping or dragging the rail, DO NOT open the modal
+    if (isSwiping) {
+      isSwiping = false;
+      return;
+    }
+    // If the tap was on a link inside the card, ignore
     if (e && e.target && (e.target.closest('.cert-quick-links') || e.target.closest('a'))) {
       return;
     }

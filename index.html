@@ -481,7 +481,7 @@
               <!-- Collapsible Live Credly Embed Section -->
               <div class="credly-embed-accordion">
                 <button type="button" class="credly-accordion-toggle" id="credly-toggle-btn" aria-expanded="false">
-                  <span>View Official Credly Live Interactive Widget</span>
+                  <span>Verify Cisco Badge (Credly Widget)</span>
                   <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
                 <div class="credly-accordion-panel" id="credly-panel" hidden>
@@ -705,18 +705,26 @@
               <a class="email-link" href="mailto:kirtanjoshi2004@gmail.com">kirtanjoshi2004@gmail.com</a>
             </div>
 
-            <!-- Direct Mailbox Composer Card -->
+            <!-- Contact Form Card -->
             <div class="direct-mailbox-wrapper">
               <div class="mailbox-card">
                 <div class="mailbox-header">
                   <div>
-                    <span class="mailbox-title">Direct Mailbox Composer</span>
-                    <p class="mailbox-subtitle">Sends an instant email directly to Kirtan's personal inbox</p>
+                    <span class="mailbox-title">Send a Message</span>
+                    <p class="mailbox-subtitle">Have a project or question? Drop me a message below.</p>
                   </div>
                   <span class="mailbox-badge">kirtanjoshi2004@gmail.com</span>
                 </div>
 
-                <form class="mailbox-form" id="direct-mailbox-form">
+                <form
+                  class="mailbox-form"
+                  id="direct-mailbox-form"
+                  action="https://formsubmit.co/kirtanjoshi2004@gmail.com"
+                  method="POST"
+                >
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
+
                   <div class="form-row">
                     <input
                       type="text"
@@ -740,7 +748,7 @@
                     id="mail-subject"
                     name="subject"
                     class="clean-input"
-                    placeholder="Subject (e.g. Project Collaboration / Job Opportunity)"
+                    placeholder="Subject"
                     required
                   />
                   <textarea
@@ -748,7 +756,7 @@
                     name="message"
                     class="clean-input clean-textarea"
                     rows="4"
-                    placeholder="Write your note to Kirtan here..."
+                    placeholder="Your message..."
                     required
                   ></textarea>
 
@@ -763,9 +771,9 @@
                       rel="noopener noreferrer"
                       class="pill chat-pill"
                       id="mail-gmail-btn"
-                      title="Open and write directly in Gmail"
+                      title="Compose in Gmail"
                     >
-                      Open in Gmail ↗
+                      Email via Gmail ↗
                     </a>
                     <a
                       href="https://wa.me/?text=Hi%20Kirtan,%20reaching%20out%20via%20your%20portfolio!"
@@ -775,7 +783,7 @@
                       id="mail-wa-btn"
                       title="Chat on WhatsApp"
                     >
-                      WhatsApp: @kirtanjoshiii
+                      WhatsApp
                     </a>
                   </div>
                   <div id="mail-status" class="status-msg" aria-live="polite"></div>
@@ -786,11 +794,12 @@
         </section>
       </main>
 
-      <!-- Site Footer with Visitor Counter -->
+      <!-- Site Footer with Real-Time Views -->
       <footer class="site-footer">
         <div class="container footer-visitors">
-          <span class="visitor-label">Site visitors</span>
-          <span id="visit-count" class="visitor-count">1,842</span>
+          <span class="live-indicator-dot" aria-hidden="true"></span>
+          <span class="visitor-label">Page views</span>
+          <span id="visit-count" class="visitor-count">—</span>
         </div>
         <div class="container footer-row">
           <div class="footer-copy">
